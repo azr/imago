@@ -9,7 +9,6 @@ import (
 )
 
 func TestCrossCorrelateGray(t *testing.T) {
-	t.Skip()
 	img := get4x4IncrementalGray()
 
 	autocorr := imago.NormalizedAutoCorrelation(img).(*image.Gray)
