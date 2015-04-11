@@ -4,16 +4,24 @@ import (
 	"github.com/azr/imago"
 
 	"testing"
+
+	"image"
 )
 
 func TestCrossCorrelate(t *testing.T) {
-	i := get4x4IncrementalGray()
+	img := get4x4IncrementalGray()
 
-	autocorr := imago.NormalizedAutoCorrelation(i.Pix)
+	autocorr := imago.NormalizedAutoCorrelation(img).(*image.Gray)
 
-	for i := 0; i < 1; i++ {
-		if autocorr[i] == 0 {
-			t.Errorf("autocorr[%d] == 0", i)
+	i := 0
+	for ; i < 1; i++ {
+		if autocorr.Pix[i] == 0 {
+			t.Errorf("autocorr.Pix[%d] == 0", i)
+		}
+	}
+	for ; i < 16; i++ {
+		if autocorr.Pix[i] != 0 {
+			t.Errorf("autocorr.Pix[%d] != 0", i)
 		}
 	}
 }
