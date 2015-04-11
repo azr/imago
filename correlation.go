@@ -7,7 +7,7 @@ import (
 //NormalizedCrossCorrUint8 calculates the normalized cross-correlation
 //[]uint8 between two []uint8.
 //
-//Avoid blue colors beeing cross correlated with red colors, PixelSize must be set to
+//To Avoid blue colors beeing cross correlated with red colors, PixelSize must be set to
 //the size a pixel is in your []uint8.
 func NormalizedCrossCorrUint8(a, b []uint8, PixelSize int) []uint8 {
 	N := len(a)
@@ -18,10 +18,9 @@ func NormalizedCrossCorrUint8(a, b []uint8, PixelSize int) []uint8 {
 		for i := 0; i < N-k; i += PixelSize {
 			for pix := 0; pix < PixelSize; pix++ {
 				I := i + pix
-				K := k + pix
 				if float64(b[I]) != 0 {
-					sum[pix] += float64(a[I+K]) * float64(b[I]) /
-						float64(a[I+K]) * float64(a[I+K])
+					sum[pix] += float64(a[I+k]) * float64(b[I]) /
+						float64(a[I+k]) * float64(a[I+k])
 				}
 			}
 		}
