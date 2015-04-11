@@ -4,17 +4,23 @@ import (
 	"image"
 )
 
+//Row represents a row from an image.
+//
+// Use it when you need per-rown calculus and/or when
+// you want to split calculus in more a readable way.
 type Row struct {
+	//Slice reference to image row
 	Pix       []uint8
 	PixelSize int
-	Stride    int
-	From      image.Image
+	//Stride of image, which is also lenght of row
+	Stride int
+	//Image the Row is from
+	From image.Image
 }
 
-func (r *Row) PixOffset(x int) int {
-	return x * r.PixelSize
-}
-
+//GetRow returns you a Rown from a known image type or panics.
+//
+//Panic will in most cases happen during dev.
 func GetRow(i image.Image, y int) *Row {
 	switch img := i.(type) {
 	case *image.Alpha:

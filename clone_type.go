@@ -5,6 +5,7 @@ import (
 	"image/draw"
 )
 
+//CloneType clones an image's type and size without copying Pix
 func CloneType(i image.Image, rect image.Rectangle) draw.Image {
 	switch img := i.(type) {
 	case *image.Alpha:

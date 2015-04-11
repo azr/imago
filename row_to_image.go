@@ -12,7 +12,7 @@ func min(a, b int) int {
 	return a
 }
 
-//ToImageRow writes row to image's row y (-)
+//ToImageRow writes row to image's row y (-----)
 func (r *Row) ToImageRow(dst image.Image, y int) {
 	dstd /*, ok*/ := dst.(draw.Image)
 	// if !ok { // Let's panic !
@@ -25,7 +25,7 @@ func (r *Row) ToImageRow(dst image.Image, y int) {
 	}
 }
 
-//ToImageRow writes row to image's columns x (|)
+//ToImageCol writes row to image's columns x (|)
 func (r *Row) ToImageCol(dst image.Image, x int) {
 	dstd /*, ok*/ := dst.(draw.Image)
 	// if !ok { // Let's panic !

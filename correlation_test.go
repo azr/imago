@@ -9,7 +9,7 @@ import (
 func TestCrossCorrelate(t *testing.T) {
 	i := get4x4IncrementalGray()
 
-	autocorr := imago.AutoCorrelateUInt8(i.Pix)
+	autocorr := imago.NormalizedAutoCorrelation(i.Pix)
 
 	for i := 0; i < 1; i++ {
 		if autocorr[i] == 0 {

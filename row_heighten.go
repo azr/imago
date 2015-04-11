@@ -4,8 +4,12 @@ import (
 	"image"
 )
 
-func (r *Row) Heighten(to int) image.Image {
-	rect := image.Rect(0, 0, r.Stride, to)
+//Heighten will transform your row into an image of height n
+//appending r.Pix n times to image.
+//
+//An image of same type the Row was from from will be returned.
+func (r *Row) Heighten(n int) image.Image {
+	rect := image.Rect(0, 0, r.Stride, n)
 	p := r.Pix[:r.Stride*r.PixelSize]
 	switch r.From.(type) {
 	case *image.Alpha:
@@ -13,7 +17,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img
@@ -22,7 +26,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img
@@ -31,7 +35,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img
@@ -40,7 +44,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img
@@ -49,7 +53,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img
@@ -58,7 +62,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img
@@ -67,7 +71,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img
@@ -76,7 +80,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img
@@ -85,7 +89,7 @@ func (r *Row) Heighten(to int) image.Image {
 			Stride: r.Stride,
 			Rect:   rect,
 		}
-		for i := 0; i < to; i++ {
+		for i := 0; i < n; i++ {
 			img.Pix = append(img.Pix, p...)
 		}
 		return &img

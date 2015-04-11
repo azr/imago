@@ -1,7 +1,8 @@
 package imago
 
-//CrossCorrelate Calculates the cross-correlation function between two vectors
-func CrossCorrelateUInt8(a []uint8, b []uint8) []uint8 {
+//NormalizedCrossCorrelation Calculates the normalized cross-correlation function
+//between two uint8 vectors
+func NormalizedCrossCorrelation(a []uint8, b []uint8) []uint8 {
 	N := len(a)
 	M := min(len(a), len(b)) // M -> desired length output
 	R := make([]uint8, M)
@@ -21,6 +22,7 @@ func CrossCorrelateUInt8(a []uint8, b []uint8) []uint8 {
 	return R
 }
 
-func AutoCorrelateUInt8(pix []uint8) []uint8 {
-	return CrossCorrelateUInt8(pix, pix)
+//NormalizedAutoCorrelation calculates normalized cross correlation of a signal with itself
+func NormalizedAutoCorrelation(pix []uint8) []uint8 {
+	return NormalizedCrossCorrelation(pix, pix)
 }

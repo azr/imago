@@ -1,5 +1,10 @@
 package imago
 
+//AverageRow creates a new row containing average Pix values pixel by pixel.
+//
+//Copies first row and sets Pix values into it.
+//
+//A uint32 array is used to not lose values of additions going over 255.
 func AverageRow(rows ...*Row) *Row {
 	nbRow := len(rows)
 	if nbRow == 0 {
@@ -9,16 +14,16 @@ func AverageRow(rows ...*Row) *Row {
 		return rows[0]
 	}
 	w := len(rows[0].Pix)
-	buffer := make([]float64, w)
+	buffer := make([]uint32, w)
 	for _, row := range rows {
 		for i := 0; i < w; i++ {
-			buffer[i] += float64(row.Pix[i])
+			buffer[i] += uint32(row.Pix[i])
 		}
 	}
 
 	pix := make([]uint8, w)
 	for n, v := range buffer {
-		pix[n] = uint8(v / float64(nbRow))
+		pix[n] = uint8(v / uint32(nbRow))
 	}
 	r := *rows[0]
 	r.Pix = pix

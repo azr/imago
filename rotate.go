@@ -13,6 +13,9 @@ const (
 	DegToRad = math.Pi / 180
 )
 
+//RotateDeg rotates i image.Image into dst image.Image.
+//
+// Using code.google.com/p/graphics-go/graphics
 func RotateDeg(dst image.Image, i image.Image, degrees float64) error {
 	dstd /*, ok*/ := dst.(draw.Image)
 	// if !ok { // Let's panic !

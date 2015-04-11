@@ -5,6 +5,12 @@ import (
 	"image/color"
 )
 
+//PixOffset gives you the beginning of a pixel from offset
+func (r *Row) PixOffset(x int) int {
+	return x * r.PixelSize
+}
+
+//At gives you a color from a position.
 func (r *Row) At(x int) color.Color {
 	i := r.PixOffset(x)
 	if i > r.Stride-1 {
