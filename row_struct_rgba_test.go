@@ -8,7 +8,7 @@ import (
 	"testing"
 )
 
-func getRGBA() *image.RGBA {
+func get4x4IncrementalRGBA() *image.RGBA {
 	i := image.NewRGBA(image.Rect(0, 0, 4, 4))
 	i.SetRGBA(0, 0, color.RGBA{0, 0, 0, 0})
 	i.SetRGBA(1, 0, color.RGBA{1, 1, 1, 1})
