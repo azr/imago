@@ -27,6 +27,6 @@ func CloneType(i image.Image, rect image.Rectangle) draw.Image {
 	case *image.RGBA64:
 		return image.NewRGBA64(rect)
 	default:
-		panic("Well I don't know that type")
+		panic(UnknownImageType.Error())
 	}
 }
