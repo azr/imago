@@ -6,7 +6,7 @@ import (
 
 //Row represents a row from an image.
 //
-// Use it when you need per-rown calculus and/or when
+// Use it when you need per-row calculus and/or when
 // you want to split calculus in more a readable way.
 type Row struct {
 	//Slice reference to image row
