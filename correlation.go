@@ -34,6 +34,8 @@ func NormalizedCrossCorrUint8(a, b []uint8, PixelSize int) []uint8 {
 
 //NormalizedCrossCorrelation Calculates the normalized cross-correlation image
 //between two images
+//
+//Panics if images have different type.
 func NormalizedCrossCorrelation(a, b image.Image) image.Image {
 	switch imgA := a.(type) {
 	case *image.Alpha:
