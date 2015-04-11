@@ -9,7 +9,7 @@ import (
 func TestRowAdd(t *testing.T) {
 	i := get4x4IncrementalGray()
 
-	r1, _ := imago.GetRow(i, 0)
+	r1 := imago.GetRow(i, 0)
 
 	r1.AddRow(r1)
 

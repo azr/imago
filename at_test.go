@@ -10,7 +10,7 @@ import (
 func TestAt(t *testing.T) {
 	i := get4x4IncrementalGray()
 
-	r, _ := imago.GetRow(i, 0)
+	r := imago.GetRow(i, 0)
 
 	c := r.At(3).(color.Gray).Y
 	if c != 3 {
@@ -19,7 +19,7 @@ func TestAt(t *testing.T) {
 }
 
 func TestAtOutOfBounds(t *testing.T) {
-	r, _ := imago.GetRow(get4x4IncrementalGray(), 0)
+	r := imago.GetRow(get4x4IncrementalGray(), 0)
 
 	defer func() {
 		expected := "At: out of bounds"

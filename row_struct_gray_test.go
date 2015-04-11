@@ -27,7 +27,7 @@ func TestRowGray(t *testing.T) {
 
 	i := get4x4IncrementalGray()
 
-	r, _ := imago.GetRow(i, 0)
+	r := imago.GetRow(i, 0)
 	if r.Stride != i.Stride {
 		t.Fatal("r.Stride != i.Stride")
 	}
@@ -41,7 +41,7 @@ func TestRowGray(t *testing.T) {
 }
 
 func TestHeightenGray(t *testing.T) {
-	r, _ := imago.GetRow(get4x4IncrementalGray(), 0)
+	r := imago.GetRow(get4x4IncrementalGray(), 0)
 	height := 70
 	ii := r.Heighten(height)
 

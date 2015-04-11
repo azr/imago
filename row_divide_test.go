@@ -10,9 +10,9 @@ func TestRowDivide(t *testing.T) {
 
 	i := get4x4IncrementalGray()
 
-	r1, _ := imago.GetRow(i, 0)
+	r1 := imago.GetRow(i, 0)
 
-	r2, _ := imago.GetRow(i, 0)
+	r2 := imago.GetRow(i, 0)
 	r2.AddRow(r1)
 	r2.DivideValues(2)
 

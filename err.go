@@ -4,4 +4,4 @@ import (
 	"errors"
 )
 
-var CantDoThat = errors.New("Can't do that !")
+var UnknownImageType = errors.New("Unknown Image Type")
