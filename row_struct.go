@@ -20,73 +20,34 @@ type Row struct {
 
 //GetRow returns you a Rown from a known image type or panics.
 //
-//Panic will in most cases happen during dev.
+//Panic will mostly happen during dev !
 func GetRow(i image.Image, y int) *Row {
+	row := &Row{
+		PixelSize: PixelSize(i),
+		Stride:    Stride(i),
+		From:      i,
+	}
 	switch img := i.(type) {
 	case *image.Alpha:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	case *image.Alpha16:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	case *image.Gray:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	case *image.Gray16:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	case *image.NRGBA:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	case *image.NRGBA64:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	case *image.Paletted:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	case *image.RGBA:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	case *image.RGBA64:
-		return &Row{
-			Pix:       img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride],
-			PixelSize: PixelSize(img),
-			Stride:    img.Stride,
-			From:      i,
-		}
+		row.Pix = img.Pix[img.PixOffset(0, y) : img.PixOffset(0, y)+img.Stride]
 	default:
 		panic(UnknownImageType.Error())
 	}
+	return row
 }
